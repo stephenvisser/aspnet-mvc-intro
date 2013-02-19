@@ -130,9 +130,11 @@ An incoming request should have 3 parts:
 
 Additionally, this configuration defines the HomeController and the Index action as the default.  Therefore, if no controller or action was specified, we will return the result of the HomeController.Index method.
 
-The default routing can be changed, and additional, more specific routes can be added. They are evaluated in order, so it is advisable to define more specific routes first, followed by more general ones.
+The default routing can be changed and additional, more specific routes can be added. They are evaluated in order, so it is advisable to define more specific routes first, followed by more general ones.
 
 When rendering views server-side, using a view engine, it is advisable to use the built in Html Helpers, such as [@Html.ActionLink](http://stackoverflow.com/questions/200476/html-actionlink-method), or [@Url.Action](http://stackoverflow.com/questions/1759189/how-does-url-action-work-asp-net-mvc) when rendering links. These are aware of routing and will render the appropriate URL, depending on how your routes are defined. If these are used, you can freely change your routes without breaking your application.
+
+[routing overview](http://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/asp-net-mvc-routing-overview-cs)
 
 ###Bundling
 In ASP.NET 4, we now have a feature called *bundling*.  Bundling allows us to concatenate and minify CSS and script files automatically when the application starts. Bundling is aware of the build mode and will:
@@ -140,11 +142,22 @@ In ASP.NET 4, we now have a feature called *bundling*.  Bundling allows us to co
 - concat+minify when in RELEASE
 - individual script/link tags will be added to the page when in DEBUG mode
 
+Defining a bundle (typically in ~/App_Start/BundleConfig.cs):
+
+    bundles.Add(new StyleBundle("~/Content/css")
+          .Include("~/Content/site.css", "~/Content/site2.css"));
+
+Using a bundle in a view:
+
+    @Styles.Render("~/Content/css")
+
+
+
 [bundling and minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 ###Action Filters
-Custom attributes can be defined that inherit from ActionFilterAttribute.
-This allows us to "inject" some code to run before or after an action is run.
+Custom attributes can be defined that inherit from FilterAttribute.
+These allow us to "inject" some code to run before or after an action is run.
 Could be used for things like:
 
 - authorization
@@ -152,6 +165,13 @@ Could be used for things like:
 - transforming/injecting parameters values
 - caching
 - ? use your imagination
+
+If we had defined our own custom attribute called LogEverything that logged all requests, we could use it easily by adding it atop an action method:
+
+    [LogEverything]
+    public ActionResult Index(){
+      return View();      
+    }
 
 [action filters](http://bit.ly/XnqSWI)
 
@@ -182,7 +202,9 @@ Web API works extremely well within an ASP.NET MVC web application and allows cr
 
 Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.
 
-###Recommended Tools
+[web api tutorial](http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP)
+
+##Recommended Tools
 
 - [Visual Studio 2012](http://www.microsoft.com/visualstudio/eng/whats-new) - newer tools means better support for web standards, updated tools, debugging experience
 - [nuget](http://nuget.org/) - package manager included with visual studio. Easily add libraries to your application
@@ -192,3 +214,4 @@ Using within an MVC application allows a nice separation between requests that s
 - [ReSharper](http://www.jetbrains.com/resharper/) - nuff said
 - [ncrunch](http://www.ncrunch.net/) or [mighty moose](http://continuoustests.com/) - tools that encourage a TDD workflow
 - [jenkins](http://jenkins-ci.org/) - continuous integration. automate that!
+- [PowerShell](http://technet.microsoft.com/en-ca/scriptcenter/powershell.aspx) - automate that! every developer should learn how to script

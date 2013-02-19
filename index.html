@@ -129,18 +129,24 @@ An incoming request should have 3 parts:</p>
 <li>and an id, which is specified as optional</li>
 </ul>
 <p>Additionally, this configuration defines the HomeController and the Index action as the default.  Therefore, if no controller or action was specified, we will return the result of the HomeController.Index method.</p>
-<p>The default routing can be changed, and additional, more specific routes can be added. They are evaluated in order, so it is advisable to define more specific routes first, followed by more general ones.</p>
+<p>The default routing can be changed and additional, more specific routes can be added. They are evaluated in order, so it is advisable to define more specific routes first, followed by more general ones.</p>
 <p>When rendering views server-side, using a view engine, it is advisable to use the built in Html Helpers, such as <a href="http://stackoverflow.com/questions/200476/html-actionlink-method">@Html.ActionLink</a>, or <a href="http://stackoverflow.com/questions/1759189/how-does-url-action-work-asp-net-mvc">@Url.Action</a> when rendering links. These are aware of routing and will render the appropriate URL, depending on how your routes are defined. If these are used, you can freely change your routes without breaking your application.</p>
+<p><a href="http://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/asp-net-mvc-routing-overview-cs">routing overview</a></p>
 <h3>Bundling</h3>
 <p>In ASP.NET 4, we now have a feature called <em>bundling</em>.  Bundling allows us to concatenate and minify CSS and script files automatically when the application starts. Bundling is aware of the build mode and will:</p>
 <ul>
 <li>concat+minify when in RELEASE</li>
 <li>individual script/link tags will be added to the page when in DEBUG mode</li>
 </ul>
+<p>Defining a bundle (typically in ~/App_Start/BundleConfig.cs):</p>
+<pre><code>bundles<span class="preprocessor">.Add</span>(new StyleBundle(<span class="string">"~/Content/css"</span>)
+      <span class="preprocessor">.Include</span>(<span class="string">"~/Content/site.css"</span>, <span class="string">"~/Content/site2.css"</span>))<span class="comment">;</span></code></pre>
+<p>Using a bundle in a view:</p>
+<pre><code><span class="at_rule">@Styles.<span class="function">Render(<span class="string">"~/Content/css"</span>)</span></code></pre>
 <p><a href="http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification">bundling and minification</a></p>
 <h3>Action Filters</h3>
-<p>Custom attributes can be defined that inherit from ActionFilterAttribute.
-This allows us to &quot;inject&quot; some code to run before or after an action is run.
+<p>Custom attributes can be defined that inherit from FilterAttribute.
+These allow us to &quot;inject&quot; some code to run before or after an action is run.
 Could be used for things like:</p>
 <ul>
 <li>authorization</li>
@@ -149,6 +155,11 @@ Could be used for things like:</p>
 <li>caching</li>
 <li>? use your imagination</li>
 </ul>
+<p>If we had defined our own custom attribute called LogEverything that logged all requests, we could use it easily by adding it atop an action method:</p>
+<pre><code>[LogEverything]
+<span class="keyword">public</span> ActionResult Index(){
+  <span class="keyword">return</span> View();      
+}</code></pre>
 <p><a href="http://bit.ly/XnqSWI">action filters</a></p>
 <h3>Display and Editor Templates</h3>
 <p>Templates can be defined for specific server-side types. This allows us to create re-usable pieces of HTML that can be automatically injected into views when we need to render instances of those types.</p>
@@ -171,7 +182,8 @@ Could be used for things like:</p>
 </ul>
 <p>Web API works extremely well within an ASP.NET MVC web application and allows creation of an &quot;API&quot; or service that provides access to model data - create, edit, delete, list, etc.</p>
 <p>Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.</p>
-<h3>Recommended Tools</h3>
+<p><a href="http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP">web api tutorial</a></p>
+<h2>Recommended Tools</h2>
 <ul>
 <li><a href="http://www.microsoft.com/visualstudio/eng/whats-new">Visual Studio 2012</a> - newer tools means better support for web standards, updated tools, debugging experience</li>
 <li><a href="http://nuget.org/">nuget</a> - package manager included with visual studio. Easily add libraries to your application</li>
@@ -181,6 +193,7 @@ Could be used for things like:</p>
 <li><a href="http://www.jetbrains.com/resharper/">ReSharper</a> - nuff said</li>
 <li><a href="http://www.ncrunch.net/">ncrunch</a> or <a href="http://continuoustests.com/">mighty moose</a> - tools that encourage a TDD workflow</li>
 <li><a href="http://jenkins-ci.org/">jenkins</a> - continuous integration. automate that!</li>
+<li><a href="http://technet.microsoft.com/en-ca/scriptcenter/powershell.aspx">PowerShell</a> - automate that! every developer should learn how to script</li>
 </ul>
 
       </section>

@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Aspnet-mvc-intro by DevFacto</title>
+    <title>ASP.NET MVC Intro by DevFacto</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="stylesheets/github.css">
+    <script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,52 +17,101 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">Aspnet-mvc-intro</h1>
-        <p class="header">aspnet-mvc-introduction</p>
+        <h1>ASP.NET MVC Intro</h1>
+        <p>Intro..</p>
+
+        <p class="view"><a href="https://github.com/DevFacto/aspnet-mvc-intro">View the Project on GitHub <small>DevFacto/aspnet-mvc-intro</small></a></p>
+
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/DevFacto/aspnet-mvc-intro/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/DevFacto/aspnet-mvc-intro/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/DevFacto/aspnet-mvc-intro">View On GitHub</a></li>
+          <li><a href="https://github.com/DevFacto/aspnet-mvc-intro/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/DevFacto/aspnet-mvc-intro/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/DevFacto/aspnet-mvc-intro">View On <strong>GitHub</strong></a></li>
         </ul>
-
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/DevFacto">DevFacto</a></p>
-
-
       </header>
       <section>
-        <h3>Welcome to GitHub Pages.</h3>
+      <h1>Intro to ASP.NET MVC</h1>
+<h2>Overview</h2>
+<h3>What is MVC?</h3>
+<p>Model–view–controller (MVC) is a software architecture pattern that separates the representation of information from the user&#39;s interaction with it. </p>
+<p>The model consists of application data, business rules, logic, and functions. A view can be any output representation of data, such as a chart or a diagram... The controller mediates input, converting it to commands for the model or view.
+<a href="http://en.wikipedia.org/wiki/Model-view-controller">wikipedia</a></p>
+<h3>What is ASP.NET MVC?</h3>
+<p>ASP.NET MVC is a framework built on top of ASP.NET that provides developers with an alternative method of building web applications.</p>
+<h3>Why does ASP.NET MVC exist?</h3>
+<p>ASP.NET MVC was not the first MVC web development framework, even for ASP.NET, and many other MVC frameworks already exist in other languages
+- Java has <a href="http://www.springsource.org/">Spring MVC</a>, and a multitude of frameworks exist in other languages like python, php, node, etc. </p>
+<p>In 2005, <a href="http://rubyonrails.org/">Ruby on Rails</a> provided an &quot;opinionated&quot; web development stack that aimed to make web development better and became extremely popular.</p>
+<p>ASP.NET MVC was first released in 2009.  The first version, along with subsequent updates and tools borrowed many ideas and philosophies from the frameworks that preceded it:</p>
+<ul>
+<li>routing</li>
+<li>convention over configuration</li>
+<li>emphasis on patterns intended to create de-coupled systems</li>
+<li>better view template engine with v3+ (<a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx">razor</a>)</li>
+<li>scaffolding</li>
+<li>finally embraced important software principles -&gt; dependency injection!</li>
+<li>MVC is fully pluggable - pieces of the framework can be swapped out and replaced with alternative implementations (ControllerFactory, DependencyResolver, view engine, etc.)</li>
+</ul>
+<h3>Why use it?</h3>
+<p>The programming paradigm in MVC maps closer to how the web actually works than ASP.NET web forms.  ASP.NET Web Forms&#39; model of using postbacks to simulate event handling on the server attempts to abstract the details of the web away and make programming for the web more similar to writing desktop applications. But the web doesn&#39;t have click events...</p>
+<p>ASP.NET MVC emphasizes a separation of concerns and focuses on giving finer control back to the developer over things like:</p>
+<ul>
+<li>HTML rendered</li>
+<li>HTTP Verbs handled - explicitly handle GETs vs POSTs</li>
+<li>Response type (JSON, HTML, etc.)</li>
+</ul>
+<p>ASP.NET MVC also allows for the generation of skeleton applications extremely quickly. Using features like scaffolding, one can quickly generate default views (list, details, edit, create, etc). This enables developers to build the simplest thing quickly and then iterate, getting working software in front of users as quickly as possible.</p>
+<h3>Models (Putting the M in MVC)</h3>
+<p><em>Models</em> are typically your data, your entities, your domain objects. Things like:</p>
+<ul>
+<li>Employee</li>
+<li>LeaveRequest</li>
+<li>Role</li>
+<li>Project</li>
+<li>Company</li>
+</ul>
+<p>These can be POCO objects, DTOs, classes of some sort. It really doesn&#39;t matter where they come from. All that matters is that they exist. They are after all, the heart of your application.</p>
+<h3>Views (They put the V in MVC)</h3>
+<p>A <em>view</em> is used to define what content is rendered to the user for a specific request. In a  MVC application, these are typically stored and organized into subfolders in the ~/Views folder. 
+A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the request /Home/Index (or /Home when index is the default).</p>
+<p>Views can be strongly typed:
+- this means that a specific model class type can be associated with the view
+- the view has access to an object, Model, of the specified type</p>
+<h3>Controllers (Yup, the C)</h3>
+<p><em>Controllers</em> are defined to handle incoming requests and demonstrate the philosophy of <em>convention over configuration</em>.
+- When ASP.NET MVC handles an incoming request, such as /Account/Login, using the default routing configuration, it will expect that a controller exists named AccountController, which has a method (action) called Login.</p>
+<h3>Put them together</h3>
+<p>For example, if we were to create a simple class like this:</p>
+<pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WelcomeModel</span>
+ {</span>
+    <span class="keyword">public</span> <span class="keyword">string</span> Message { <span class="keyword">get</span>; <span class="keyword">set</span>; }
+ }</code></pre>
+<p>... create a view at ~/Home/Index.cshtml like this: </p>
+<pre><code>@model SampleApp.Models.WelcomeModel
+@{
+    ViewBag.Title = "Welcome Page";
+}
+<span class="tag">&lt;<span class="title">h3</span>&gt;</span>Welcome<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span>
+    @Model.Message
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
+<p>... and ensure that our HomeController has an action named Index and returns a view using model type:</p>
+<pre><code>public <span class="class"><span class="keyword">class</span> <span class="title">HomeController</span> :</span> Controller
+{
+    public ActionResult Index()
+    {
+        <span class="keyword">return</span> View(new WelcomeModel(){Message = <span class="string">"Hello there."</span>});
+    }
+}</code></pre>
+<p>navigating to our web app in a browser, we should see our message &quot;Hello there.&quot; displayed.</p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p>This project is maintained by <a href="https://github.com/DevFacto">DevFacto</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>

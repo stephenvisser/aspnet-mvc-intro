@@ -75,7 +75,8 @@
 A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the request /Home/Index (or /Home when index is the default).</p>
 <p>Views can be strongly typed:
 - this means that a specific model class type can be associated with the view
-- the view has access to an object, Model, of the specified type</p>
+- the view has access to an object, Model, of the specified type
+Can also use dynamic objects such as the ViewBag to pass values to the view.</p>
 <h3>Controllers (Yup, the C)</h3>
 <p><em>Controllers</em> are defined to handle incoming requests and demonstrate the philosophy of <em>convention over configuration</em>.
 - When ASP.NET MVC handles an incoming request, such as /Account/Login, using the default routing configuration, it will expect that a controller exists named AccountController, which has a method (action) called Login.</p>
@@ -98,7 +99,7 @@ A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the r
 @{
     ViewBag.Title = "Welcome Page";
 }
-<span class="tag">&lt;<span class="title">h3</span>&gt;</span>Welcome<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
+<span class="tag">&lt;<span class="title">h3</span>&gt;</span>ViewBag.HeaderMessage<span class="tag">&lt;/<span class="title">h3</span>&gt;</span>
 <span class="tag">&lt;<span class="title">p</span>&gt;</span>
     @Model.Message
 <span class="tag">&lt;/<span class="title">p</span>&gt;</span></code></pre>
@@ -107,6 +108,7 @@ A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the r
 {
     public ActionResult Index()
     {
+        ViewBag.HeaderMessage = <span class="string">"Welcome"</span>;
         <span class="keyword">return</span> View(new WelcomeModel(){Message = <span class="string">"Hello there."</span>});
     }
 }</code></pre>

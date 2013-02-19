@@ -60,6 +60,7 @@ A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the r
 Views can be strongly typed:
 - this means that a specific model class type can be associated with the view
 - the view has access to an object, Model, of the specified type
+Can also use dynamic objects such as the ViewBag to pass values to the view.
 
 ###Controllers (Yup, the C)
 *Controllers* are defined to handle incoming requests and demonstrate the philosophy of *convention over configuration*.
@@ -88,10 +89,11 @@ For example, if we were to create a simple class like this:
     @{
         ViewBag.Title = "Welcome Page";
     }
-    <h3>Welcome</h3>
+    <h3>ViewBag.HeaderMessage</h3>
     <p>
         @Model.Message
     </p>
+
 
 ... and ensure that our HomeController has an action named Index and returns a view using model type:
 
@@ -99,6 +101,7 @@ For example, if we were to create a simple class like this:
     {
         public ActionResult Index()
         {
+            ViewBag.HeaderMessage = "Welcome";
             return View(new WelcomeModel(){Message = "Hello there."});
         }
     }

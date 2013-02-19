@@ -184,11 +184,11 @@ Using within an MVC application allows a nice separation between requests that s
 
 ###Recommended Tools
 
-- Visual Studio 2012
-- nuget
-- ELMAH
-- smtp4dev
-- Mindscape Web Workbench
-- reSharper
-- ncrunch or mighty moose
-- jenkins
+- [Visual Studio 2012](http://www.microsoft.com/visualstudio/eng/whats-new) - newer tools means better support for web standards, updated tools, debugging experience
+- [nuget](http://nuget.org/) - package manager included with visual studio. Easily add libraries to your application
+- [ELMAH](http://code.google.com/p/elmah/) - logging for ASP.NET applications
+- [smtp4dev](http://smtp4dev.codeplex.com/) - local email server, great to use during development
+- [Mindscape Web Workbench](http://www.mindscapehq.com/products/web-workbench) - free version supports SASS, use SASS!
+- [ReSharper](http://www.jetbrains.com/resharper/) - nuff said
+- [ncrunch](http://www.ncrunch.net/) or [mighty moose](http://continuoustests.com/) - tools that encourage a TDD workflow
+- [jenkins](http://jenkins-ci.org/) - continuous integration. automate that!

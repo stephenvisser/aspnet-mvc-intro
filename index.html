@@ -80,7 +80,15 @@ A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the r
 <h3>Controllers (Yup, the C)</h3>
 <p><em>Controllers</em> are defined to handle incoming requests and demonstrate the philosophy of <em>convention over configuration</em>.
 - When ASP.NET MVC handles an incoming request, such as /Account/Login, using the default routing configuration, it will expect that a controller exists named AccountController, which has a method (action) called Login.</p>
-<h3>Put them together</h3>
+<p>Actions are expected to return something that inherits from ActionResult:</p>
+<ul>
+<li>ViewResult - ex. return View(), return View(&quot;SpecificViewName&quot;)</li>
+<li>JsonResult - ex. return Json(object)</li>
+<li>RedirectToRouteResult - redirect the request to another action</li>
+<li>ContentResult, FileContentResult, etc.</li>
+<li>A custom extension of ActionResult or one of it&#39;s children</li>
+</ul>
+<h3>Putting the M,V,and C together</h3>
 <p>For example, if we were to create a simple class like this:</p>
 <pre><code> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WelcomeModel</span>
  {</span>
@@ -103,7 +111,77 @@ A view stored at ~/Views/Home/Index.cshtml would typically be rendered for the r
         <span class="keyword">return</span> View(new WelcomeModel(){Message = <span class="string">"Hello there."</span>});
     }
 }</code></pre>
-<p>navigating to our web app in a browser, we should see our message &quot;Hello there.&quot; displayed.</p>
+<p>navigating to our web app in a browser at the URL /Home/Index, we should see our message &quot;Hello there.&quot; displayed as our request was routed to the appropriate action which responded with our view content.</p>
+<h3>Routing</h3>
+<p><em>Routing</em> is what is used to map requests to controllers, actions, and their parameters.
+On creating an ASP.NET MVC app, the default configuration contains something like : </p>
+<pre><code>  routes.<span class="class">MapRoute</span>(
+      <span class="method">name:</span> <span class="comment">"Default"</span>,
+      <span class="method">url:</span> <span class="comment">"{controller}/{action}/{id}"</span>,
+      <span class="method">defaults:</span> new { controller = <span class="comment">"Home"</span>, 
+      action = <span class="comment">"Index"</span>, id = <span class="class">UrlParameter</span>.<span class="class">Optional</span> }
+  );</code></pre>
+<p>This is essentially telling the routing engine how to parse incoming requests. 
+An incoming request should have 3 parts:</p>
+<ul>
+<li>the name of a controller</li>
+<li>the name of an action</li>
+<li>and an id, which is specified as optional</li>
+</ul>
+<p>Additionally, this configuration defines the HomeController and the Index action as the default.  Therefore, if no controller or action was specified, we will return the result of the HomeController.Index method.</p>
+<p>The default routing can be changed, and additional, more specific routes can be added. They are evaluated in order, so it is advisable to define more specific routes first, followed by more general ones.</p>
+<p>When rendering views server-side, using a view engine, it is advisable to use the built in Html Helpers, such as <a href="http://stackoverflow.com/questions/200476/html-actionlink-method">@Html.ActionLink</a>, or <a href="http://stackoverflow.com/questions/1759189/how-does-url-action-work-asp-net-mvc">@Url.Action</a> when rendering links. These are aware of routing and will render the appropriate URL, depending on how your routes are defined. If these are used, you can freely change your routes without breaking your application.</p>
+<h3>Bundling</h3>
+<p>In ASP.NET 4, we now have a feature called <em>bundling</em>.  Bundling allows us to concatenate and minify CSS and script files automatically when the application starts. Bundling is aware of the build mode and will:</p>
+<ul>
+<li>concat+minify when in RELEASE</li>
+<li>individual script/link tags will be added to the page when in DEBUG mode</li>
+</ul>
+<p><a href="http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification">bundling and minification</a></p>
+<h3>Action Filters</h3>
+<p>Custom attributes can be defined that inherit from ActionFilterAttribute.
+This allows us to &quot;inject&quot; some code to run before or after an action is run.
+Could be used for things like:</p>
+<ul>
+<li>authorization</li>
+<li>audit logging</li>
+<li>transforming/injecting parameters values</li>
+<li>caching</li>
+<li>? use your imagination</li>
+</ul>
+<p><a href="http://bit.ly/XnqSWI">action filters</a></p>
+<h3>Display and Editor Templates</h3>
+<p>Templates can be defined for specific server-side types. This allows us to create re-usable pieces of HTML that can be automatically injected into views when we need to render instances of those types.</p>
+<p>For example, consider the type DateTime:
+- a display template could be a span containing the formatted time text
+- an editor template could be an input box with a datepicker</p>
+<p>Display and editor templates are typically added to the folders ~/Views/Shared/DisplayTemplates and ~/Views/Shared/EditorTemplates, respectively.</p>
+<p>In views, templates can be used by using the appropriate Html helpers and passing in the instance that we want to render:</p>
+<ul>
+<li>@Html.DisplayFor(model=&gt;model.Date)</li>
+<li>@Html.EditorFor(model=&gt;model.Date)</li>
+</ul>
+<p><a href="http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html">example</a></p>
+<h3>Web API</h3>
+<p>An API for creating HTTP services, targeted toward building RESTful applications:</p>
+<ul>
+<li>similar to MVC, Web API also has a similar route configuration</li>
+<li>handles GET, POST, PUT, DELETE verbs via convention, uses parameter namign for method resolution</li>
+<li>good support for JSON serialization, deserializing objects passed from client</li>
+</ul>
+<p>Web API works extremely well within an ASP.NET MVC web application and allows creation of an &quot;API&quot; or service that provides access to model data - create, edit, delete, list, etc.</p>
+<p>Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.</p>
+<h3>Recommended Tools</h3>
+<ul>
+<li>Visual Studio 2012</li>
+<li>nuget</li>
+<li>ELMAH</li>
+<li>smtp4dev</li>
+<li>Mindscape Web Workbench</li>
+<li>reSharper</li>
+<li>ncrunch or mighty moose</li>
+<li>jenkins</li>
+</ul>
 
       </section>
       <footer>

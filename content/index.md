@@ -66,8 +66,16 @@ Views can be strongly typed:
 *Controllers* are defined to handle incoming requests and demonstrate the philosophy of *convention over configuration*.
 - When ASP.NET MVC handles an incoming request, such as /Account/Login, using the default routing configuration, it will expect that a controller exists named AccountController, which has a method (action) called Login.
 
+Actions are expected to return something that inherits from ActionResult:
 
-###Put them together
+- ViewResult - ex. return View(), return View("SpecificViewName")
+- JsonResult - ex. return Json(object)
+- RedirectToRouteResult - redirect the request to another action
+- ContentResult, FileContentResult, etc.
+- A custom extension of ActionResult or one of it's children
+
+
+###Putting the M,V,and C together
 For example, if we were to create a simple class like this:
 
      public class WelcomeModel
@@ -96,4 +104,91 @@ For example, if we were to create a simple class like this:
         }
     }
 
-navigating to our web app in a browser, we should see our message "Hello there." displayed.
+navigating to our web app in a browser at the URL /Home/Index, we should see our message "Hello there." displayed as our request was routed to the appropriate action which responded with our view content.
+
+
+###Routing
+
+*Routing* is what is used to map requests to controllers, actions, and their parameters.
+On creating an ASP.NET MVC app, the default configuration contains something like : 
+
+   
+
+      routes.MapRoute(
+          name: "Default",
+          url: "{controller}/{action}/{id}",
+          defaults: new { controller = "Home", 
+          action = "Index", id = UrlParameter.Optional }
+      );
+     
+This is essentially telling the routing engine how to parse incoming requests. 
+An incoming request should have 3 parts:
+
+- the name of a controller
+- the name of an action
+- and an id, which is specified as optional
+
+Additionally, this configuration defines the HomeController and the Index action as the default.  Therefore, if no controller or action was specified, we will return the result of the HomeController.Index method.
+
+The default routing can be changed, and additional, more specific routes can be added. They are evaluated in order, so it is advisable to define more specific routes first, followed by more general ones.
+
+When rendering views server-side, using a view engine, it is advisable to use the built in Html Helpers, such as [@Html.ActionLink](http://stackoverflow.com/questions/200476/html-actionlink-method), or [@Url.Action](http://stackoverflow.com/questions/1759189/how-does-url-action-work-asp-net-mvc) when rendering links. These are aware of routing and will render the appropriate URL, depending on how your routes are defined. If these are used, you can freely change your routes without breaking your application.
+
+###Bundling
+In ASP.NET 4, we now have a feature called *bundling*.  Bundling allows us to concatenate and minify CSS and script files automatically when the application starts. Bundling is aware of the build mode and will:
+
+- concat+minify when in RELEASE
+- individual script/link tags will be added to the page when in DEBUG mode
+
+[bundling and minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
+
+###Action Filters
+Custom attributes can be defined that inherit from ActionFilterAttribute.
+This allows us to "inject" some code to run before or after an action is run.
+Could be used for things like:
+
+- authorization
+- audit logging
+- transforming/injecting parameters values
+- caching
+- ? use your imagination
+
+[action filters](http://bit.ly/XnqSWI)
+
+###Display and Editor Templates
+Templates can be defined for specific server-side types. This allows us to create re-usable pieces of HTML that can be automatically injected into views when we need to render instances of those types.
+
+For example, consider the type DateTime:
+- a display template could be a span containing the formatted time text
+- an editor template could be an input box with a datepicker
+
+Display and editor templates are typically added to the folders ~/Views/Shared/DisplayTemplates and ~/Views/Shared/EditorTemplates, respectively.
+
+In views, templates can be used by using the appropriate Html helpers and passing in the instance that we want to render:
+
+- @Html.DisplayFor(model=>model.Date)
+- @Html.EditorFor(model=>model.Date)
+
+[example](http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html)
+
+###Web API
+An API for creating HTTP services, targeted toward building RESTful applications:
+
+- similar to MVC, Web API also has a similar route configuration
+- handles GET, POST, PUT, DELETE verbs via convention, uses parameter namign for method resolution
+- good support for JSON serialization, deserializing objects passed from client
+
+Web API works extremely well within an ASP.NET MVC web application and allows creation of an "API" or service that provides access to model data - create, edit, delete, list, etc.
+
+Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.
+
+###Recommended Tools
+
+- Visual Studio 2012
+- nuget
+- ELMAH
+- smtp4dev
+- Mindscape Web Workbench
+- reSharper
+- ncrunch or mighty moose
+- jenkins

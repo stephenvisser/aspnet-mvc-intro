@@ -1,6 +1,5 @@
 #Intro to ASP.NET MVC
 
-##Overview
 
 ###What is MVC?
 
@@ -203,6 +202,12 @@ Web API works extremely well within an ASP.NET MVC web application and allows cr
 Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.
 
 [web api tutorial](http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP)
+
+###Conclusion
+There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4).  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.
+
+
+
 
 ##Recommended Tools
 

@@ -27,10 +27,10 @@ ASP.NET MVC was first released in 2009.  The first version, along with subsequen
 - emphasis on patterns intended to create de-coupled systems
 - better view template engine with v3+ ([razor](http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx))
 - scaffolding
-- finally embraced important software principles -> dependency injection!
 - MVC is fully pluggable - pieces of the framework can be swapped out and replaced with alternative implementations (ControllerFactory, DependencyResolver, view engine, etc.)
-- dependency injection
+- finally embraced important software principles like... -> [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection)!
 - design with testing in mind - dependencies throughout can be mocked and fully tested
+- validation (client side and server side, respecting [DataAnnotations](http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx))
 
 ###Why use it?
 The programming paradigm in MVC maps closer to how the web actually works than ASP.NET web forms.  ASP.NET Web Forms' model of using postbacks to simulate event handling on the server attempts to abstract the details of the web away and make programming for the web more similar to writing desktop applications. But the web doesn't have click events...
@@ -158,6 +158,25 @@ Using a bundle in a view:
 
 
 [bundling and minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
+
+###Validation
+ASP.NET MVC has first-class support for validation. Using data annotations to decorate model classes, it is possible to propagate validation and error messages through and auto-generate client-side validation using libraries like jQuery validation.
+
+Models submitted to the server can be validated easily using the ModelState object, which is part of the Controller class.
+
+    [HttpPost]
+    public ActionResult CreateItem(MyModel submittedModel)
+    {
+      if(ModelState.IsValid)
+      {
+        //handle..save to db or something
+        return Redirect("/");
+      }
+      //invalid.. oh no! redisplay view with errors
+      return View(submittedModel);
+    }
+
+[example](http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx)
 
 ###Action Filters
 Custom attributes can be defined that inherit from FilterAttribute.

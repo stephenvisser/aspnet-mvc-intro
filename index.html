@@ -48,10 +48,10 @@
 <li>emphasis on patterns intended to create de-coupled systems</li>
 <li>better view template engine with v3+ (<a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx">razor</a>)</li>
 <li>scaffolding</li>
-<li>finally embraced important software principles -&gt; dependency injection!</li>
 <li>MVC is fully pluggable - pieces of the framework can be swapped out and replaced with alternative implementations (ControllerFactory, DependencyResolver, view engine, etc.)</li>
-<li>dependency injection</li>
+<li>finally embraced important software principles like... -&gt; <a href="http://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>!</li>
 <li>design with testing in mind - dependencies throughout can be mocked and fully tested</li>
+<li>validation (client side and server side, respecting <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx">DataAnnotations</a>)</li>
 </ul>
 <h3>Why use it?</h3>
 <p>The programming paradigm in MVC maps closer to how the web actually works than ASP.NET web forms.  ASP.NET Web Forms&#39; model of using postbacks to simulate event handling on the server attempts to abstract the details of the web away and make programming for the web more similar to writing desktop applications. But the web doesn&#39;t have click events...</p>
@@ -147,6 +147,21 @@ An incoming request should have 3 parts:</p>
 <p>Using a bundle in a view:</p>
 <pre><code><span class="at_rule">@Styles.<span class="function">Render(<span class="string">"~/Content/css"</span>)</span></code></pre>
 <p><a href="http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification">bundling and minification</a></p>
+<h3>Validation</h3>
+<p>ASP.NET MVC has first-class support for validation. Using data annotations to decorate model classes, it is possible to propagate validation and error messages through and auto-generate client-side validation using libraries like jQuery validation.</p>
+<p>Models submitted to the server can be validated easily using the ModelState object, which is part of the Controller class.</p>
+<pre><code>[HttpPost]
+public ActionResult CreateItem(MyModel submittedModel)
+{
+  <span class="keyword">if</span>(ModelState.IsValid)
+  {
+    <span class="regexp">//</span>handle..save to db <span class="keyword">or</span> something
+    <span class="keyword">return</span> Redirect(<span class="string">"/"</span>);
+  }
+  <span class="regexp">//i</span>nvalid.. oh <span class="literal">no</span>! redisplay view <span class="reserved">with</span> errors
+  <span class="keyword">return</span> View(submittedModel);
+}</code></pre>
+<p><a href="http://weblogs.asp.net/scottgu/archive/2010/01/15/asp-net-mvc-2-model-validation.aspx">example</a></p>
 <h3>Action Filters</h3>
 <p>Custom attributes can be defined that inherit from FilterAttribute.
 These allow us to &quot;inject&quot; some code to run before or after an action is run.

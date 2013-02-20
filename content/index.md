@@ -29,7 +29,7 @@ ASP.NET MVC was first released in 2009.  The first version, along with subsequen
 - scaffolding
 - MVC is fully pluggable - pieces of the framework can be swapped out and replaced with alternative implementations (ControllerFactory, DependencyResolver, view engine, etc.)
 - finally embraced important software principles like... -> [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection)!
-- design with testing in mind - dependencies throughout can be mocked and fully tested
+- design with testing in mind - dependencies throughout can be mocked and fully tested, better supporting a [TDD](http://en.wikipedia.org/wiki/Test-driven_development) approach
 - validation (client side and server side, respecting [DataAnnotations](http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx))
 
 ###Why use it?
@@ -241,6 +241,8 @@ Using within an MVC application allows a nice separation between requests that s
 ###Unit Testing
 ASP.NET MVC has support for dependency injection and also allows developers to plug in alternative implementations throughout. This design allows us to mock out dependencies and apply a unit testing strategy throughout.  As an example, even controller dependencies can be mocked, allowing us to fully test our code through each layer.
 
+We've found that a TDD approach works great while building MVC apps, and tools like [ncrunch](http://www.ncrunch.net/) are great at encouraging that workflow.
+
 [unit testing in mvc apps](http://msdn.microsoft.com/en-us/magazine/dd942838.aspx#id0420003)
 
 ###Single Page Apps (SPAs)
@@ -259,11 +261,13 @@ This trend is quickly becoming mainstream, such that Visual Studio now ships wit
 ###Conclusion
 There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4).  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.
 
-A lot of the technologies available throught the MVC framework are focused on server-side coding. While we believe that currently, the best strategy for new applications is to focus on building a great user experience through client side code building responsive single page applications, it is still important for developers to understand the breadth of options available throughout the framework.
+A lot of the technologies available throught the MVC framework are focused on server-side coding. While we believe that currently the best strategy for new applications is to focus on building a great user experience through client side code, building responsive single page applications, it is still important for developers to understand the breadth of options available throughout the framework.
 
 Fully understanding the options that the MVC framework provides will allow you to make informed decisions about when, where, and how its technologies could be used (and mixed) within an application. 
 
 For example, a perfectly valid strategy could be to focus on building out the core user experience as an SPA, while utilizing more server side technologies for quickly building out and securing admin pages, pieces that may not need the same love and consistency as the rest of the application initially. 
+
+There are some great libraries available, like [MVC Mailer](https://github.com/smsohan/MvcMailer/wiki/MvcMailer-Step-by-Step-Guide), that allow you to use the MVC style controllers and view engines for templating and generating emails within an application.  Even while building an SPA, there are some tasks that are a natural fit for server-side view generation.
 
 Utilizing different strategies during stages of an application's evolution could also provide useful. Quickly scaffolding CRUD tasks and generating pages could allow for developers to mock up initial possibilites before deciding on what to build
 

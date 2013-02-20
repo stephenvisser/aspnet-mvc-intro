@@ -11,7 +11,7 @@ The model consists of application data, business rules, logic, and functions. A 
 
 
 ###What is ASP.NET MVC?
-ASP.NET MVC is a framework built on top of ASP.NET that provides developers with an alternative method of building web applications to the traditional Web Forms model.
+[ASP.NET MVC](http://www.asp.net/mvc) is a framework built on top of ASP.NET that provides developers with an alternative method of building web applications to the traditional Web Forms model.
 
 ###Why does ASP.NET MVC exist?
 

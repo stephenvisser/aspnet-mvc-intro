@@ -23,7 +23,7 @@ In 2005, [Ruby on Rails](http://rubyonrails.org/) provided an "opinionated" web 
 ASP.NET MVC was first released in 2009.  The first version, along with subsequent updates and tools borrowed many ideas and philosophies from the frameworks that preceded it:
 
 - routing
-- convention over configuration
+- [convention over configuration](http://en.wikipedia.org/wiki/Convention_over_configuration)
 - emphasis on patterns intended to create de-coupled systems
 - better view template engine with v3+ ([razor](http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx))
 - scaffolding

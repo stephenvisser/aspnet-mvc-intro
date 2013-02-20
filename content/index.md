@@ -259,8 +259,15 @@ This trend is quickly becoming mainstream, such that Visual Studio now ships wit
 ###Conclusion
 There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4).  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.
 
+A lot of the technologies available throught the MVC framework are focused on server-side coding. While we believe that currently, the best strategy for new applications is to focus on building a great user experience through client side code building responsive single page applications, it is still important for developers to understand the breadth of options available throughout the framework.
 
+Fully understanding the options that the MVC framework provides will allow you to make informed decisions about when, where, and how its technologies could be used (and mixed) within an application. 
 
+For example, a perfectly valid strategy could be to focus on building out the core user experience as an SPA, while utilizing more server side technologies for quickly building out and securing admin pages, pieces that may not need the same love and consistency as the rest of the application initially. 
+
+Utilizing different strategies during stages of an application's evolution could also provide useful. Quickly scaffolding CRUD tasks and generating pages could allow for developers to mock up initial possibilites before deciding on what to build
+
+In the end, it's up to you and your team to decide which pieces of the framework to use - knowing is half the battle.
 
 ##Recommended Tools
 

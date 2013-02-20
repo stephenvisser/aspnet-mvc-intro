@@ -52,6 +52,7 @@ ASP.NET MVC also allows for the generation of skeleton applications extremely qu
 - Role
 - Project
 - Company
+- maybe a service wrapper, maybe a repository, you decide how to organize your app
 
 These can be POCO objects, DTOs, classes of some sort. It really doesn't matter where they come from. All that matters is that they exist. They are after all, the heart of your application.
 
@@ -224,7 +225,7 @@ A layout in ASP.NET MVC is not too different from what is called a Master Page i
 
 
 ###Web API
-An API for creating HTTP services, targeted toward building RESTful applications:
+Not specifically part of the MVC namespace, but an API for creating HTTP services, targeted toward building RESTful applications and integrates well within ASP.NET MVC applications:
 
 - similar to MVC, Web API also has a similar route configuration
 - handles GET, POST, PUT, DELETE verbs via convention, uses parameter namign for method resolution
@@ -232,7 +233,7 @@ An API for creating HTTP services, targeted toward building RESTful applications
 
 Web API works extremely well within an ASP.NET MVC web application and allows creation of an "API" or service that provides access to model data - create, edit, delete, list, etc.
 
-Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.
+Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve resource data or execute commands on the server.
 
 [web api tutorial](http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP)
 
@@ -249,6 +250,11 @@ ASP.NET MVC is still a great choice for apps created with a focus on rendering c
 
 - bundling can be used for delivering assets like CSS and JavaScript efficiently
 - Web API and its JSON serialization is a great fit for client/server communication
+
+
+This trend is quickly becoming mainstream, such that Visual Studio now ships with a template for kickstarting the creation of single page web applications. Some of the popular frameworks used include [knockoutjs](http://knockoutjs.com/), [backbonejs](http://backbonejs.org/), [emberjs](http://emberjs.com/), and [angularjs](http://angularjs.org/). After using several of these, we prefer angular.
+
+
 
 ###Conclusion
 There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4).  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.

@@ -70,6 +70,7 @@
 <li>Role</li>
 <li>Project</li>
 <li>Company</li>
+<li>maybe a service wrapper, maybe a repository, you decide how to organize your app</li>
 </ul>
 <p>These can be POCO objects, DTOs, classes of some sort. It really doesn&#39;t matter where they come from. All that matters is that they exist. They are after all, the heart of your application.</p>
 <h3>Views (They put the V in MVC)</h3>
@@ -197,14 +198,14 @@ Could be used for things like:</p>
 <h3>Layouts</h3>
 <p>A layout in ASP.NET MVC is not too different from what is called a Master Page in traditional ASP.NET MVC web forms. Layouts allow you to extract surrounding structure from views into a reusable component.  Typically, the layout will define the html page, script includes, and overall page layout. A view can define a specific layout to use, or when not defined, a default layout can be used.</p>
 <h3>Web API</h3>
-<p>An API for creating HTTP services, targeted toward building RESTful applications:</p>
+<p>Not specifically part of the MVC namespace, but an API for creating HTTP services, targeted toward building RESTful applications and integrates well within ASP.NET MVC applications:</p>
 <ul>
 <li>similar to MVC, Web API also has a similar route configuration</li>
 <li>handles GET, POST, PUT, DELETE verbs via convention, uses parameter namign for method resolution</li>
 <li>good support for JSON serialization, deserializing objects passed from client</li>
 </ul>
 <p>Web API works extremely well within an ASP.NET MVC web application and allows creation of an &quot;API&quot; or service that provides access to model data - create, edit, delete, list, etc.</p>
-<p>Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.</p>
+<p>Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve resource data or execute commands on the server.</p>
 <p><a href="http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP">web api tutorial</a></p>
 <h3>Unit Testing</h3>
 <p>ASP.NET MVC has support for dependency injection and also allows developers to plug in alternative implementations throughout. This design allows us to mock out dependencies and apply a unit testing strategy throughout.  As an example, even controller dependencies can be mocked, allowing us to fully test our code through each layer.</p>
@@ -216,6 +217,7 @@ Could be used for things like:</p>
 <li>bundling can be used for delivering assets like CSS and JavaScript efficiently</li>
 <li>Web API and its JSON serialization is a great fit for client/server communication</li>
 </ul>
+<p>This trend is quickly becoming mainstream, such that Visual Studio now ships with a template for kickstarting the creation of single page web applications. Some of the popular frameworks used include <a href="http://knockoutjs.com/">knockoutjs</a>, <a href="http://backbonejs.org/">backbonejs</a>, <a href="http://emberjs.com/">emberjs</a>, and <a href="http://angularjs.org/">angularjs</a>. After using several of these, we prefer angular.</p>
 <h3>Conclusion</h3>
 <p>There are lots of ASP.NET MVC tutorials on the web, like <a href="http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4">this one</a>.  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.</p>
 <h2>Recommended Tools</h2>

@@ -11,7 +11,7 @@ The model consists of application data, business rules, logic, and functions. A 
 
 
 ###What is ASP.NET MVC?
-ASP.NET MVC is a framework built on top of ASP.NET that provides developers with an alternative method of building web applications.
+ASP.NET MVC is a framework built on top of ASP.NET that provides developers with an alternative method of building web applications to the traditional Web Forms model.
 
 ###Why does ASP.NET MVC exist?
 
@@ -283,6 +283,5 @@ In the end, it's up to you and your team to decide which pieces of the framework
 - [ReSharper](http://www.jetbrains.com/resharper/) - nuff said
 - a unit testing library - we like [NUnit](http://www.nunit.org/), along with [Moq](http://code.google.com/p/moq/) for mocking dependencies
 - [ncrunch](http://www.ncrunch.net/) or [mighty moose](http://continuoustests.com/) - tools that encourage a TDD workflow
-
 - [jenkins](http://jenkins-ci.org/) - continuous integration. automate that!
 - [PowerShell](http://technet.microsoft.com/en-ca/scriptcenter/powershell.aspx) - automate that! every developer should learn how to script

@@ -66,7 +66,7 @@ Can also use dynamic objects such as the ViewBag to pass values to the view.
 *Controllers* are defined to handle incoming requests and demonstrate the philosophy of *convention over configuration*.
 - When ASP.NET MVC handles an incoming request, such as /Account/Login, using the default routing configuration, it will expect that a controller exists named AccountController, which has a method (action) called Login.
 
-Actions are expected to return something that inherits from ActionResult:
+Actions are expected to return something that inherits from [ActionResult](http://bit.ly/UHXspS):
 
 - ViewResult - ex. return View(), return View("SpecificViewName")
 - JsonResult - ex. return Json(object)
@@ -177,6 +177,11 @@ If we had defined our own custom attribute called LogEverything that logged all 
 
 [action filters](http://bit.ly/XnqSWI)
 
+###View Composition
+
+###Partial Views
+Partial views are similar to views, but are intended to be reusable. These can also be "strongly-typed" to a model object and used to render a specific type.  These can be a great way to compose larger views of smaller, more manageable pieces, or can be reused to render similar things across the application.  
+
 ###Display and Editor Templates
 Templates can be defined for specific server-side types. This allows us to create re-usable pieces of HTML that can be automatically injected into views when we need to render instances of those types.
 
@@ -190,6 +195,9 @@ In views, templates can be used by using the appropriate Html helpers and passin
 
 - @Html.DisplayFor(model=>model.Date)
 - @Html.EditorFor(model=>model.Date)
+
+###Layouts
+A layout in ASP.NET MVC is not too different from what is called a Master Page in traditional ASP.NET MVC web forms. Layouts allow you to extract surrounding structure from views into a reusable component.  Typically, the layout will define the html page, script includes, and overall page layout. A view can define a specific layout to use, or when not defined, a default layout can be used.
 
 [example](http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html)
 
@@ -205,6 +213,10 @@ Web API works extremely well within an ASP.NET MVC web application and allows cr
 Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.
 
 [web api tutorial](http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP)
+
+###Single Page Apps (SPAs)
+ASP.NET MVC can also be used in apps with a focus on rendering content client side. A current trend in web applications is to deliver content initially, and utilize code on the client (JavaScript) to handle routing, using AJAX to query the server and update the page.TODO:more here..
+
 
 ###Conclusion
 There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4).  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.

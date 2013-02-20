@@ -33,3 +33,38 @@ c:\users\mthiessen\documents\visual studio 2010\Projects\AngularApp\AngularApp\b
 c:\users\mthiessen\documents\visual studio 2010\Projects\AngularApp\AngularApp\obj\Debug\ResolveAssemblyReference.cache
 c:\users\mthiessen\documents\visual studio 2010\Projects\AngularApp\AngularApp\obj\Debug\AngularApp.dll
 c:\users\mthiessen\documents\visual studio 2010\Projects\AngularApp\AngularApp\obj\Debug\AngularApp.pdb
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\AngularApp.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\AngularApp.pdb
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\Antlr3.Runtime.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\EntityFramework.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\Newtonsoft.Json.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Net.Http.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Net.Http.Formatting.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Net.Http.WebRequest.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Helpers.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Http.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Http.WebHost.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Mvc.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Optimization.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Razor.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.WebPages.Deployment.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.WebPages.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.WebPages.Razor.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\WebGrease.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\Newtonsoft.Json.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Razor.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\EntityFramework.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Net.Http.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Net.Http.Formatting.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Net.Http.WebRequest.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Helpers.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Http.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Http.WebHost.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.Mvc.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.WebPages.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.WebPages.Deployment.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\bin\System.Web.WebPages.Razor.xml
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\obj\Debug\AngularApp.dll
+C:\Users\mthiessen\Documents\GitHub\aspnet-mvc-intro\mvc-angular-starter-app\AngularApp\obj\Debug\AngularApp.pdb

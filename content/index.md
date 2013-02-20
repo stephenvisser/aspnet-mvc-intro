@@ -198,10 +198,11 @@ In views, templates can be used by using the appropriate Html helpers and passin
 - @Html.DisplayFor(model=>model.Date)
 - @Html.EditorFor(model=>model.Date)
 
+[example](http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html)
+
 ###Layouts
 A layout in ASP.NET MVC is not too different from what is called a Master Page in traditional ASP.NET MVC web forms. Layouts allow you to extract surrounding structure from views into a reusable component.  Typically, the layout will define the html page, script includes, and overall page layout. A view can define a specific layout to use, or when not defined, a default layout can be used.
 
-[example](http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html)
 
 ###Web API
 An API for creating HTTP services, targeted toward building RESTful applications:
@@ -216,9 +217,19 @@ Using within an MVC application allows a nice separation between requests that s
 
 [web api tutorial](http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP)
 
-###Single Page Apps (SPAs)
-ASP.NET MVC can also be used in apps with a focus on rendering content client side. A current trend in web applications is to deliver content initially, and utilize code on the client (JavaScript) to handle routing, using AJAX to query the server and update the page.TODO:more here..
 
+###Unit Testing
+ASP.NET MVC has support for dependency injection and also allows developers to plug in alternative implementations throughout. This design allows us to mock out dependencies and apply a unit testing strategy throughout.  As an example, even controller dependencies can be mocked, allowing us to fully test our code through each layer.
+
+[unit testing in mvc apps](http://msdn.microsoft.com/en-us/magazine/dd942838.aspx#id0420003)
+
+###Single Page Apps (SPAs)
+A current trend in web applications is to deliver content initially in a single page, and utilize the client (JavaScript) to handle routing and rendering content, typically using AJAX to communicate with the server.
+
+ASP.NET MVC is still a great choice for apps created with a focus on rendering content client side. Some of the tools available are still a great fit within this model:
+
+- bundling can be used for delivering assets like CSS and JavaScript efficiently
+- Web API and its JSON serialization is a great fit for client/server communication
 
 ###Conclusion
 There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4).  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.
@@ -234,6 +245,8 @@ There are lots of ASP.NET MVC tutorials on the web, like [this one](http://www.a
 - [smtp4dev](http://smtp4dev.codeplex.com/) - local email server, great to use during development
 - [Mindscape Web Workbench](http://www.mindscapehq.com/products/web-workbench) - free version supports SASS, use SASS!
 - [ReSharper](http://www.jetbrains.com/resharper/) - nuff said
+- a unit testing library - we like [NUnit](http://www.nunit.org/), along with [Moq](http://code.google.com/p/moq/) for mocking dependencies
 - [ncrunch](http://www.ncrunch.net/) or [mighty moose](http://continuoustests.com/) - tools that encourage a TDD workflow
+
 - [jenkins](http://jenkins-ci.org/) - continuous integration. automate that!
 - [PowerShell](http://technet.microsoft.com/en-ca/scriptcenter/powershell.aspx) - automate that! every developer should learn how to script

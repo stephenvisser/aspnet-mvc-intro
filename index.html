@@ -178,9 +178,9 @@ Could be used for things like:</p>
 <li>@Html.DisplayFor(model=&gt;model.Date)</li>
 <li>@Html.EditorFor(model=&gt;model.Date)</li>
 </ul>
+<p><a href="http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html">example</a></p>
 <h3>Layouts</h3>
 <p>A layout in ASP.NET MVC is not too different from what is called a Master Page in traditional ASP.NET MVC web forms. Layouts allow you to extract surrounding structure from views into a reusable component.  Typically, the layout will define the html page, script includes, and overall page layout. A view can define a specific layout to use, or when not defined, a default layout can be used.</p>
-<p><a href="http://www.growingwiththeweb.com/2012/12/aspnet-mvc-display-and-editor-templates.html">example</a></p>
 <h3>Web API</h3>
 <p>An API for creating HTTP services, targeted toward building RESTful applications:</p>
 <ul>
@@ -191,8 +191,16 @@ Could be used for things like:</p>
 <p>Web API works extremely well within an ASP.NET MVC web application and allows creation of an &quot;API&quot; or service that provides access to model data - create, edit, delete, list, etc.</p>
 <p>Using within an MVC application allows a nice separation between requests that serve pages, and requests that should serve data.</p>
 <p><a href="http://www.codeproject.com/Articles/344078/ASP-NET-WebAPI-Getting-Started-with-MVC4-and-WebAP">web api tutorial</a></p>
+<h3>Unit Testing</h3>
+<p>ASP.NET MVC has support for dependency injection and also allows developers to plug in alternative implementations throughout. This design allows us to mock out dependencies and apply a unit testing strategy throughout.  As an example, even controller dependencies can be mocked, allowing us to fully test our code through each layer.</p>
+<p><a href="http://msdn.microsoft.com/en-us/magazine/dd942838.aspx#id0420003">unit testing in mvc apps</a></p>
 <h3>Single Page Apps (SPAs)</h3>
-<p>ASP.NET MVC can also be used in apps with a focus on rendering content client side. A current trend in web applications is to deliver content initially, and utilize code on the client (JavaScript) to handle routing, using AJAX to query the server and update the page.TODO:more here..</p>
+<p>A current trend in web applications is to deliver content initially in a single page, and utilize the client (JavaScript) to handle routing and rendering content, typically using AJAX to communicate with the server.</p>
+<p>ASP.NET MVC is still a great choice for apps created with a focus on rendering content client side. Some of the tools available are still a great fit within this model:</p>
+<ul>
+<li>bundling can be used for delivering assets like CSS and JavaScript efficiently</li>
+<li>Web API and its JSON serialization is a great fit for client/server communication</li>
+</ul>
 <h3>Conclusion</h3>
 <p>There are lots of ASP.NET MVC tutorials on the web, like <a href="http://www.asp.net/mvc/tutorials/mvc-4/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4">this one</a>.  The goal of this is just to familiarize you with a few concepts and help understand the types of things you could be dealing with when building an application using this framework.</p>
 <h2>Recommended Tools</h2>
@@ -203,8 +211,11 @@ Could be used for things like:</p>
 <li><a href="http://smtp4dev.codeplex.com/">smtp4dev</a> - local email server, great to use during development</li>
 <li><a href="http://www.mindscapehq.com/products/web-workbench">Mindscape Web Workbench</a> - free version supports SASS, use SASS!</li>
 <li><a href="http://www.jetbrains.com/resharper/">ReSharper</a> - nuff said</li>
-<li><a href="http://www.ncrunch.net/">ncrunch</a> or <a href="http://continuoustests.com/">mighty moose</a> - tools that encourage a TDD workflow</li>
-<li><a href="http://jenkins-ci.org/">jenkins</a> - continuous integration. automate that!</li>
+<li>a unit testing library - we like <a href="http://www.nunit.org/">NUnit</a>, along with <a href="http://code.google.com/p/moq/">Moq</a> for mocking dependencies</li>
+<li><p><a href="http://www.ncrunch.net/">ncrunch</a> or <a href="http://continuoustests.com/">mighty moose</a> - tools that encourage a TDD workflow</p>
+</li>
+<li><p><a href="http://jenkins-ci.org/">jenkins</a> - continuous integration. automate that!</p>
+</li>
 <li><a href="http://technet.microsoft.com/en-ca/scriptcenter/powershell.aspx">PowerShell</a> - automate that! every developer should learn how to script</li>
 </ul>
 

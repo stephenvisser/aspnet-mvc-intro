@@ -29,6 +29,8 @@ ASP.NET MVC was first released in 2009.  The first version, along with subsequen
 - scaffolding
 - finally embraced important software principles -> dependency injection!
 - MVC is fully pluggable - pieces of the framework can be swapped out and replaced with alternative implementations (ControllerFactory, DependencyResolver, view engine, etc.)
+- dependency injection
+- design with testing in mind - dependencies throughout can be mocked and fully tested
 
 ###Why use it?
 The programming paradigm in MVC maps closer to how the web actually works than ASP.NET web forms.  ASP.NET Web Forms' model of using postbacks to simulate event handling on the server attempts to abstract the details of the web away and make programming for the web more similar to writing desktop applications. But the web doesn't have click events...
